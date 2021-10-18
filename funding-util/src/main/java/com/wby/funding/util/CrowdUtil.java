@@ -163,6 +163,9 @@ public class CrowdUtil {
      * true：是 false:不是
      * */
     public static boolean judgRequestType(HttpServletRequest request) {
+        String accept = request.getHeader("Accept");
+        String contentType = request.getHeader("ContentType");
+
         String acceptHeader = request.getHeader("Accept");
         String xRequest = request.getHeader("X-Requested-With");
         return ((acceptHeader != null && acceptHeader.contains("application/json")) || (xRequest != null && xRequest.equals("XMLHttpRequest")));
